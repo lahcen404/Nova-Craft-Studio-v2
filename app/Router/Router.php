@@ -1,6 +1,6 @@
 <?php 
 
-
+require_once __DIR__ . '/../Database/DBConnection.php';
     // $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
     $req_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // get full path 
@@ -21,6 +21,10 @@
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
+
+        if($page === 'contact'){
+            require_once __DIR__ . '/../Controllers/ContactController.php';
+        }
 
     if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){
 
