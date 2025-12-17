@@ -5,7 +5,9 @@
 
     $req_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // get full path 
 
-    $path = trim($req_uri,'/'); // remove '/'
+    $base_path = '/Nova-Craft-Studio-v2/public/';
+    $path = str_replace($base_path, '' , $req_uri);
+    $path = trim($path,'/'); // remove '/'
 
     $page = empty($path) ? 'home' : $path;
 
@@ -18,20 +20,20 @@
         'contact' => 'Contact - NovaCraft Studio',
     ]   ;
 
-    $page_path = ROOT_PATH . '/pages/' . $page . '.php';
+$base_view_path = __DIR__ . '/../../views/pages/';
 
-    if(array_key_exists($page,$routes) && file_exists($page_path)){
+    if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){
 
         $title = $routes[$page];
-        $content_file = $page_path;
+        $content_file = $base_view_path . $page . '.php';
     }else{
 
         $page ='404';
         $title = '404 - Page Noot Found !!!';
-        $content_file = ROOT_PATH . '/pages/404.php';
+        $content_file =  $base_view_path . '404.php';
     }
 
-    require_once ROOT_PATH . '/templates/layout.php';
+    require_once __DIR__ . '/../../views/templates/layout.php';
 
     
 ?>
