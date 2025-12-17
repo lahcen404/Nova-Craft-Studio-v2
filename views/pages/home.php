@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DigitalWave Solutions - Accueil</title>
-  <link rel="stylesheet" href="../public/assets/tailwind css/src/output.css">
-</head>
-<body class="bg-gray-50 text-gray-800">
 
 
   <section class="container mx-auto py-20 text-center">
@@ -16,5 +7,3 @@
   </section>
 
  
-</body>
-</html>

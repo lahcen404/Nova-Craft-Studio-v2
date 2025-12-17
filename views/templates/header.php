@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><?= htmlspecialchars($title) ?></title>
-  <link rel="stylesheet" href="../public/assets/tailwind-css/src/output.css">
-</head>
-<body class="bg-gray-50 text-gray-800">
+
   <header class="bg-white shadow-md">
     <nav class="container mx-auto flex justify-between items-center py-4">
       <h1 class="text-2xl font-bold text-blue-600">DigitalWave</h1>
