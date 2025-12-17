@@ -1,5 +1,5 @@
 <?php 
-$services = require_once __DIR__ . '/../data/services.php';
+$services = require_once __DIR__ . '/../../app/Services/Services.php';
 ?>
 
 <h2 class="text-4xl font-extrabold text-gray-900 mb-8 border-b pb-2">Nos Services DigitalWave</h2>
