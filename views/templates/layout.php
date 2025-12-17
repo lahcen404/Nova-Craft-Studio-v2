@@ -1,5 +1,5 @@
 <?php
-    require_once ROOT_PATH . "/templates/header.php"
+    require_once __DIR__ .  "/header.php"
 ?>
 <main class="container mx-auto p-6">
     <?php 
@@ -9,6 +9,6 @@
 <?php
 
 
-require_once ROOT_PATH . "/templates/footer.php"
+require_once __DIR__ . "/footer.php"
 
 ?>
