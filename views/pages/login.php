@@ -1,6 +1,11 @@
 <div class="max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-md border border-gray-100">
     <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login to NovaCraft</h2>
 
+    <?php if (isset($errors['login'])): ?>
+        <div class="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
+            <?= $errors['login'] ?>
+        </div>
+    <?php endif; ?>
 
     <form action="/login" method="POST" class="space-y-4">
         <div>
