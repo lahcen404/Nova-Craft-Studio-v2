@@ -3,6 +3,11 @@
 
     // session_start();
 
+    if(isset($_SESSION['user_id'])){
+        header("Location: /home");
+        exist;
+    }
+
     $errors = [];
     
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
