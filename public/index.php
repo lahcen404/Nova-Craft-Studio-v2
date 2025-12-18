@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     require_once __DIR__ . '/../app/Router/Router.php';
     require_once __DIR__ . '/../app/Database/DBConnection.php';

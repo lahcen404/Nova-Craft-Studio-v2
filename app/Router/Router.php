@@ -9,7 +9,7 @@ require_once __DIR__ . '/../Database/DBConnection.php';
     $path = str_replace($base_path, '' , $req_uri);
     $path = trim($path,'/'); // remove '/'
 
-    $page = empty($path) ? 'home' : $path;
+    $page = empty($path) ? 'home' : strtolower($path);
 
 
 
@@ -19,7 +19,8 @@ require_once __DIR__ . '/../Database/DBConnection.php';
         'services' => 'Services - NovaCraft Studio',
         'contact' => 'Contact - NovaCraft Studio',
         'register' => 'Register - NovaCraft Studio',
-        'login' => 'Login - NovaCraft Studio'
+        'login' => 'Login - NovaCraft Studio',
+        'logout' => 'logout'
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
@@ -34,6 +35,11 @@ $base_view_path = __DIR__ . '/../../views/pages/';
 
         if($page === 'login'){
             require_once __DIR__ . '/../Controllers/LoginController.php';
+        }
+
+        if($page === 'logout'){
+            require_once __DIR__ . '/../Controllers/LogoutController.php';
+            exit;
         }
 
     if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){
