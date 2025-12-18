@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . '/../Database/DBConnection.php';
 
-    session_start();
+    // session_start();
 
     $errors = [];
     
