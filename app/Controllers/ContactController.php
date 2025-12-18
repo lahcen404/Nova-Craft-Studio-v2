@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         if (mysqli_stmt_execute($stmt)) {
             $success_message = 'Your message saved in DB !!!';
+            $name = $email = $message = "";
         } else {
             $errors['db'] = 'Database error: ' . mysqli_error($con);
         }

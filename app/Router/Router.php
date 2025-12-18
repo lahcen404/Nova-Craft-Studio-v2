@@ -18,12 +18,17 @@ require_once __DIR__ . '/../Database/DBConnection.php';
         'about' => 'About - NovaCraft Studio',
         'services' => 'Services - NovaCraft Studio',
         'contact' => 'Contact - NovaCraft Studio',
+        'register' => 'Register - NovaCraft Studio'
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
 
         if($page === 'contact'){
             require_once __DIR__ . '/../Controllers/ContactController.php';
+        }
+
+        if($page === 'register'){
+            require_once __DIR__ . '/../Controllers/RegisterController.php';
         }
 
     if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){
