@@ -2,6 +2,11 @@
 
     require_once __DIR__ . '/../Database/DBConnection.php';
 
+    if(isset($_SESSION['user_id'])){
+        header("Location: /home");
+        exist;
+    }
+
     $errors= [];
     $success_message = '';
 
