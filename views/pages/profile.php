@@ -4,8 +4,8 @@
         
         <div class="px-6 py-8 relative">
             <div class="absolute -top-12 left-6 w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
-                <span class="text-blue-600 text-4xl font-bold">
-                    <?= strtoupper(substr($user_data['name'], 0, 1)) ?>
+                <span class="text-blue-600 text-sm font-bold">
+                    PICTURE 
                 </span>
             </div>
 
