@@ -20,7 +20,7 @@ require_once __DIR__ . '/../Database/DBConnection.php';
         'contact' => 'Contact - NovaCraft Studio',
         'register' => 'Register - NovaCraft Studio',
         'login' => 'Login - NovaCraft Studio',
-        'logout' => 'logout'
+        'logout' => 'logout',
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
