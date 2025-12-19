@@ -4,7 +4,7 @@
 
     if(isset($_SESSION['user_id'])){
         header("Location: /home");
-        exist;
+        exit();
     }
 
     $errors= [];

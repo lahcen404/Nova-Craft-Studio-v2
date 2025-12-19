@@ -20,7 +20,8 @@ require_once __DIR__ . '/../Database/DBConnection.php';
         'contact' => 'Contact - NovaCraft Studio',
         'register' => 'Register - NovaCraft Studio',
         'login' => 'Login - NovaCraft Studio',
-        'logout' => 'logout'
+        'logout' => 'logout',
+        'profile' => 'Profile'
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
@@ -40,6 +41,10 @@ $base_view_path = __DIR__ . '/../../views/pages/';
         if($page === 'logout'){
             require_once __DIR__ . '/../Controllers/LogoutController.php';
             exit;
+        }
+
+        if($page === 'profile'){
+            require_once __DIR__ . '/../Controllers/ProfileController.php';
         }
 
     if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){

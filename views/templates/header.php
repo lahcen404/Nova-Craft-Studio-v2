@@ -14,8 +14,8 @@
     <div class="flex items-center space-x-4">
       <?php if (isset($_SESSION['user_id'])): ?>
         
-        <a href="/profile" class="text-gray-700 font-bold hover:text-blue-600 transition">
-           <?= htmlspecialchars($_SESSION['user_name']) ?>
+        <a href="/profile" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium transition">
+           Profile
         </a>
         
         <a href="/logout" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm font-medium transition">

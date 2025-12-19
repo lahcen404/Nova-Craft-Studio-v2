@@ -25,7 +25,7 @@
 
         if(empty($errors)){
             // find user by emaiil 
-            $sql = "SELECT id,email,password FROM users WHERE email = ?";
+            $sql = "SELECT id,password FROM users WHERE email = ?";
             $stmt = mysqli_prepare($con ,$sql );
             mysqli_stmt_bind_param($stmt,"s",$email);
             mysqli_stmt_execute($stmt);
@@ -39,7 +39,7 @@
 
             // create session
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
+           // $_SESSION['user_name'] = $user['name'];
 
             header("Location: /home");
             exist;
