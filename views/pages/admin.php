@@ -12,22 +12,22 @@
                 </tr>
             </thead>
             <tbody class="text-gray-600 text-sm font-light">
-                <?php if (empty($messages)): ?>
-                    <tr><td colspan="4" class="py-10 text-center text-gray-400">No messages found.</td></tr>
-                <?php else: ?>
-                    <?php foreach ($messages as $msg): ?>
+                    <?php if (empty($messages)): ?>
+                    <tr><td colspan="4" class="py-10 text-center text-gray-400">No messages found !!!</td></tr>
+                    <?php else: ?>
+                        <?php foreach($messages as $msg): ?>
                         <tr class="border-b border-gray-200 hover:bg-gray-50 transition">
-                            <td class="py-3 px-6"><?= date('M d, H:i', strtotime($msg['created_at'])) ?></td>
-                            <td class="py-3 px-6 font-medium text-gray-900"><?= htmlspecialchars($msg['name']) ?></td>
-                            <td class="py-3 px-6"><?= htmlspecialchars($msg['email']) ?></td>
+                            <td class="py-3 px-6"><?= date('M d, H:i' , strtotime($msg['created_at'])) ?></td>
+                            <td class="py-3 px-6 font-medium text-gray-900"><?= htmlspecialchars($msg['name'])?></td>
+                            <td class="py-3 px-6"><?=htmlspecialchars ($msg['email'])?></td>
                             <td class="py-3 px-6">
                                 <p class="line-clamp-2" title="<?= htmlspecialchars($msg['message']) ?>">
                                     <?= htmlspecialchars($msg['message']) ?>
                                 </p>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                   <?php endforeach ?>
+                   <?php endif ?>
             </tbody>
         </table>
     </div>
