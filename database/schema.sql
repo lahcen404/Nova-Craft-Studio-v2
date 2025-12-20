@@ -19,6 +19,19 @@ CREATE TABLE contact (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- add role admin
+ALTER TABLE users 
+ADD COLUMN role 
+ENUM ('user','admin')
+DEFAULT 'user';
+
+-- give role admin 
+UPDATE users
+SET COLUMN role = 'admin'
+WHERE id = 2;
+
+
+
  
 select * from users;
 select * from contact;

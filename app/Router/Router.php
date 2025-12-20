@@ -21,7 +21,8 @@ require_once __DIR__ . '/../Database/DBConnection.php';
         'register' => 'Register - NovaCraft Studio',
         'login' => 'Login - NovaCraft Studio',
         'logout' => 'logout',
-        'profile' => 'Profile'
+        'profile' => 'Profile',
+        'admin' => 'Admin Panel'
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
@@ -45,6 +46,10 @@ $base_view_path = __DIR__ . '/../../views/pages/';
 
         if($page === 'profile'){
             require_once __DIR__ . '/../Controllers/ProfileController.php';
+        }
+
+        if($page === 'admin'){
+            require_once __DIR__ . '/../Controllers/AdminController.php';
         }
 
     if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){
