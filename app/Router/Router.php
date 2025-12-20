@@ -3,6 +3,12 @@
 require_once __DIR__ . '/../Database/DBConnection.php';
     // $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
+    $protected_routes = ['logout','admin','profile'];
+    $guest_routes = ['login','register'];
+    $admin_routes = ['admin'];
+
+
+
     $req_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // get full path 
 
     $base_path = '/Nova-Craft-Studio-v2/public/';
@@ -10,6 +16,25 @@ require_once __DIR__ . '/../Database/DBConnection.php';
     $path = trim($path,'/'); // remove '/'
 
     $page = empty($path) ? 'home' : strtolower($path);
+
+// check protected routes
+    if(in_array($page,$protected_routes) && !isset($_SESSION['user_id'])){
+        header("Location: /login");
+        exit;
+    }
+
+    // check guest routes
+
+    if(in_array($page,$guest_routes) && isset($_SESSION['user_id'])){
+        header("Location: /home");
+        exit;
+    }
+
+    // check if admin to redirect (/admin)
+    if(in_array($page,$admin_routes) && $_SESSION['role'] != 'admin'){
+        header("Location: /home");
+        exit;
+    }
 
 
 

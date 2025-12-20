@@ -2,10 +2,10 @@
 
     require_once __DIR__ . '/../Database/DBConnection.php';
 
-    if(!isset($_SESSION['user_id'])){
-        header("Location: /login");
-        exit();
-    }
+    // if(!isset($_SESSION['user_id'])){
+    //     header("Location: /login");
+    //     exit();
+    // }
 
     $user_id = $_SESSION['user_id'];
     $user_data = null;
