@@ -42,6 +42,9 @@
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['role'] = $user['role'];
 
+            $_SESSION['flash_msg'] = "Welcome back ," . htmlspecialchars($user['name']) . "!!";
+            $_SESSION['flash_type'] = "success";
+
             header("Location: /home");
             exist;
         }else{

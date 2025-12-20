@@ -20,6 +20,9 @@ require_once __DIR__ . '/../Database/DBConnection.php';
 // check protected routes
     if(in_array($page,$protected_routes) && !isset($_SESSION['user_id'])){
         header("Location: /login");
+        $_SESSION['flash_msg'] = "You Should Login !!";
+        $_SESSION['flash_type'] = "error";
+
         exit;
     }
 
@@ -32,6 +35,10 @@ require_once __DIR__ . '/../Database/DBConnection.php';
 
     // check if admin to redirect (/admin)
     if(in_array($page,$admin_routes) && $_SESSION['role'] != 'admin'){
+
+        $_SESSION['flash_msg'] = "You're not an Admin to visit this page !! !!";
+        $_SESSION['flash_type'] = "error";
+
         header("Location: /home");
         exit;
     }
