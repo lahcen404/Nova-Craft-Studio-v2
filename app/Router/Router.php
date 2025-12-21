@@ -19,10 +19,11 @@ require_once __DIR__ . '/../Database/DBConnection.php';
 
 // check protected routes
     if(in_array($page,$protected_routes) && !isset($_SESSION['user_id'])){
-        header("Location: /login");
+       
         $_SESSION['flash_msg'] = "You Should Login !!";
         $_SESSION['flash_type'] = "error";
-
+        
+        header("Location: /login");
         exit;
     }
 
