@@ -3,6 +3,12 @@
 require_once __DIR__ . '/../Database/DBConnection.php';
     // $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
+    $protected_routes = ['logout','admin','profile'];
+    $guest_routes = ['login','register'];
+    $admin_routes = ['admin'];
+
+
+
     $req_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // get full path 
 
     $base_path = '/Nova-Craft-Studio-v2/public/';
@@ -10,6 +16,32 @@ require_once __DIR__ . '/../Database/DBConnection.php';
     $path = trim($path,'/'); // remove '/'
 
     $page = empty($path) ? 'home' : strtolower($path);
+
+// check protected routes
+    if(in_array($page,$protected_routes) && !isset($_SESSION['user_id'])){
+        header("Location: /login");
+        $_SESSION['flash_msg'] = "You Should Login !!";
+        $_SESSION['flash_type'] = "error";
+
+        exit;
+    }
+
+    // check guest routes
+
+    if(in_array($page,$guest_routes) && isset($_SESSION['user_id'])){
+        header("Location: /home");
+        exit;
+    }
+
+    // check if admin to redirect (/admin)
+    if(in_array($page,$admin_routes) && $_SESSION['role'] != 'admin'){
+
+        $_SESSION['flash_msg'] = "You're not an Admin to visit this page !! !!";
+        $_SESSION['flash_type'] = "error";
+
+        header("Location: /home");
+        exit;
+    }
 
 
 
@@ -21,7 +53,8 @@ require_once __DIR__ . '/../Database/DBConnection.php';
         'register' => 'Register - NovaCraft Studio',
         'login' => 'Login - NovaCraft Studio',
         'logout' => 'logout',
-        'profile' => 'Profile'
+        'profile' => 'Profile',
+        'admin' => 'Admin Panel'
     ]   ;
 
 $base_view_path = __DIR__ . '/../../views/pages/';
@@ -45,6 +78,10 @@ $base_view_path = __DIR__ . '/../../views/pages/';
 
         if($page === 'profile'){
             require_once __DIR__ . '/../Controllers/ProfileController.php';
+        }
+
+        if($page === 'admin'){
+            require_once __DIR__ . '/../Controllers/AdminController.php';
         }
 
     if(array_key_exists($page,$routes) && file_exists($base_view_path . $page . '.php')){

@@ -9,6 +9,9 @@
       <li><a href="/services" class="<?= ($page === 'services') ? 'text-blue-600 font-medium' : 'text-gray-600' ?>">Services</a></li>
       <li><a href="/about" class="<?= ($page === 'about') ? 'text-blue-600 font-medium' : 'text-gray-600' ?>">About</a></li>
       <li><a href="/contact" class="<?= ($page === 'contact') ? 'text-blue-600 font-medium' : 'text-gray-600' ?>">Contact</a></li>
+      <?php if(isset($_SESSION['role']) && ($_SESSION['role'] === 'admin')): ?>
+              <li><a href="/admin" class="<?= ($page === 'admin') ? 'text-blue-600 font-medium' : 'text-gray-600' ?>">Messages</a></li>
+        <?php endif ?>
     </ul>
 
     <div class="flex items-center space-x-4">
