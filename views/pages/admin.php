@@ -31,4 +31,23 @@
             </tbody>
         </table>
     </div>
+    <div class="mt-8 flex justify-center items-center space-x-4">
+        <?php if($page_num > 1): ?>
+            <a href="/admin?p=<?= $page_num - 1 ?>" 
+               class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-600 hover:text-white transition">
+               &larr; Previous
+            </a>
+        <?php endif; ?>
+
+        <span class="font-semibold text-gray-700">
+            Page <?= $page_num ?> of <?= $total_pages ?>
+        </span>
+
+        <?php if($page_num < $total_pages): ?>
+            <a href="/admin?p=<?= $page_num + 1 ?>" 
+               class="bg-gray-200 px-4 py-2 rounded hover:bg-blue-600 hover:text-white transition">
+               Next &rarr;
+            </a>
+        <?php endif; ?>
+    </div>
 </div>
